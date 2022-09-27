@@ -6,6 +6,8 @@ var logger = require('morgan');
 const session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
+const bidsRouter = require('./routes/bids');
 const enginer = require('ejs-locals');
 const dotenv = require('dotenv').config();
 
@@ -31,6 +33,8 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/products',productsRouter);
+app.use('/bids',bidsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
