@@ -149,34 +149,35 @@
             <div class="col-lg-8">
                 <div class="mb-4">
                     <h4 class="font-weight-semi-bold mb-4">Account Details</h4>
-                    <div class="row">
+                    <form id="registerForm" onsubmit="handleSubmit(event)" action="/users/register" method="POST">
+                      <div class="row">
                         <div class="col-md-6 form-group">
                             <label>First Name</label>
-                            <input class="form-control" type="text" placeholder="Zachery">
+                            <input class="form-control" type="text" placeholder="Zachery" name="fname">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Last Name</label>
-                            <input class="form-control" type="text" placeholder="John">
+                            <input class="form-control" type="text" placeholder="John" name="lname">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>E-mail</label>
-                            <input class="form-control" type="text" placeholder="example@email.com">
+                            <input class="form-control" name="email" type="text" placeholder="example@email.com">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Mobile No</label>
-                            <input class="form-control" type="text" placeholder="+123 456 789">
+                            <input class="form-control" name="phone" type="text" placeholder="+123 456 789">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Address Line 1</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
+                            <input class="form-control" name="address" type="text" placeholder="123 Street">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Address Line 2</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
+                            <input class="form-control"name="address" type="text" placeholder="123 Street">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Country</label>
-                            <select class="custom-select">
+                            <select name="country" class="custom-select">
                                 <option selected>Australia</option>
                                 <option>Afghanistan</option>
                                 <option>Albania</option>
@@ -185,30 +186,34 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label>City</label>
-                            <input class="form-control" type="text" placeholder="Sydney">
+                            <input class="form-control" name="city" type="text" placeholder="Sydney">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>State</label>
-                            <input class="form-control" type="text" placeholder="Sydney">
+                            <input class="form-control" name="state" type="text" placeholder="Sydney">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>ZIP Code</label>
-                            <input class="form-control" type="text" placeholder="123">
+                            <input class="form-control" name="zipcode" type="text" placeholder="123">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Password</label>
-                            <input class="form-control" type="text" placeholder="*************">
+                            <input class="form-control" id="password" name="password" type="password" placeholder="*************">
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Confirm Password</label>
-                            <input class="form-control" type="text" placeholder="*************">
+                            <input class="form-control" id="confirm-password" name="confirmPassword"  type="password" placeholder="*************">
                         </div>
                         <div class="card-footer border-secondary bg-transparent">
-                            <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Register</button>
+                            <button type="submit" class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Register</button>
+                        </div>
                     </div>
+                  </form>
                 </div>
             </div>
-        </div>
+            <% if(locals.msg) { %>
+                <h1><%- locals.msg %></h1>
+            <% }%>
     </div>
     <!-- Checkout End -->
 

@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const enginer = require('ejs-locals');
+const dotenv = require('dotenv').config();
 
 var app = express();
 
@@ -18,6 +20,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+const oneDay = 1000 * 60 * 60 * 24;
+
+app.use(session({
+    secret: process.env.SESSION_KEY,
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -26,6 +36,7 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

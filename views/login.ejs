@@ -152,24 +152,24 @@
             <div class="col-lg-7 mb-5">
                 <div class="contact-form">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <form action="/users/login" method="POST" id="contactForm" novalidate="novalidate">
                         <div class="control-group">
-                            <input type="email" class="form-control" id="email" placeholder="Your Email"
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" name="email"
                                 required="required" data-validation-required-message="Please enter your email" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <input type="text" class="form-control" id="password" placeholder="Password"
+                            <input type="text" class="form-control" id="password" placeholder="Password" name="password"
                                 required="required" data-validation-required-message="Please enter a password" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div>
                             <button class="btn btn-primary py-2 px-4" type="submit" id="login">Log
                                 In</button>
-                            <button class="btn btn-primary py-2 px-4" type="submit" id="forgetpassword">Forget
+                            <!-- <button class="btn btn-primary py-2 px-4" type="submit" id="forgetpassword">Forget
                                 Password</button>
                             <button class="btn btn-primary py-2 px-4" type="submit" id="forgetemail">Forget
-                                Email</button>     
+                                Email</button>      -->
                         </div>
                     </form>
                 </div>
@@ -259,7 +259,6 @@
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
