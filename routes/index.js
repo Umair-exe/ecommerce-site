@@ -3,7 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index.ejs');
+  const product = [{
+    name: 'test',
+    price: '21',
+    description: 'test'
+  }]
+  res.render('index.ejs', {product});
 })
 
 router.get('/vendor-shop',(req,res,next) => {

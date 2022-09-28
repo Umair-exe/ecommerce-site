@@ -114,3 +114,8 @@ function handleSubmit(event) {
     document.getElementById('registerForm').submit();
 
 }
+
+function addtocart(event,product) {
+    event.preventDefault();
+    console.log(product);
+}
