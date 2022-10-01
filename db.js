@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const db = () => {
-    mongoose.connect('mongodb+srv://umair_21:babayaga!1@cluster0.qnlgx.mongodb.net/?retryWrites=true&w=majority')
+    mongoose.connect(process.env.MONGO_KEY)
     .then(() => {
         console.log('db is connected');
     })
