@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('huzaifa-project:server');
 var http = require('http');
+const { db } = require('../db');
 
 /**
  * Get port from environment and store in Express.
@@ -82,6 +83,7 @@ function onError(error) {
  */
 
 function onListening() {
+  db();
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr

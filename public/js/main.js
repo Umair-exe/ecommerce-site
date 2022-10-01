@@ -102,3 +102,20 @@
     
 })(jQuery);
 
+function handleSubmit(event) {
+    event.preventDefault();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    if(!password || !confirmPassword) return;
+    if(password !== confirmPassword ) {
+        alert('password and confirm password should be same')
+        return;
+    }
+    document.getElementById('registerForm').submit();
+
+}
+
+function addtocart(event,product) {
+    event.preventDefault();
+    console.log(product);
+}
