@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const bidsRouter = require('./routes/bids');
+const cartsRouter = require('./routes/carts');
 const enginer = require('ejs-locals');
 const dotenv = require('dotenv').config();
 
@@ -35,6 +36,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',productsRouter);
 app.use('/bids',bidsRouter);
+app.use('/cart',cartsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
